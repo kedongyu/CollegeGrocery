@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.lyq.bean.Admin" table="admin">
+      <meta attribute="class-description">
+         This class contains the administrator detail. 
+      </meta>
+      <id name="id" type="int" column="user_id">
+         <generator class="native"/>
+      </id>
+      <property name="phone" column="user_phone" type="string"/>
+      <property name="name" column="user_name" type="string"/>
+      <property name="email" column="user_email" type="string"/>
+      <property name="password" column="user_password" type="string"/>
+      <property name="power" column="user_power" type="short"/>
+   </class>
+</hibernate-mapping>
