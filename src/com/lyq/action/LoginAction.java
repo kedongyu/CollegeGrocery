@@ -52,12 +52,27 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 		this.admin = admin;
 	}
 	public String register() {
-		admin.setPower((short)0);
+		admin.setPower((short)2);
 		System.out.println(admin.getEmail()+" "+admin.getPassword()+" "+admin.getPhone()+" "+admin.getName());
 		Integer userId=aManager.addAdmin(admin);
 		if(userId!=null)
 			return SUCCESS;
 		else
 			return ERROR;
+	}
+	/**
+	 * ÐÞ¸ÄÃÜÂë
+	 * @return
+	 */
+	private String temp;
+	public void setTemp(String temp) {
+		this.temp=temp;
+	}
+	public String getTemp() {
+		return temp;
+	}
+	public String ceshi() {
+	//	aManager.correctPassword(admin.getId(), temp);
+		return SUCCESS;
 	}
 }
