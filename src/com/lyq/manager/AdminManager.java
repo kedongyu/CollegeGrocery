@@ -78,6 +78,90 @@ public class AdminManager {
 			return null;
 		}
 	}
+	/**
+	 * 修改密码
+	 */
+	 public void correctPassword(Integer AdminID, String password ){
+	      Session session = factory.openSession();
+	      Transaction tx = null;
+	      try{
+	         tx = session.beginTransaction();
+	         Admin admin = (Admin)session.get(Admin.class, AdminID); 
+	         admin.setPassword(password);
+	         session.update(admin); 
+	         tx.commit();
+	      }catch (HibernateException e) {
+	         if (tx!=null) tx.rollback();
+	         e.printStackTrace(); 
+	      }finally {
+	         session.close(); 
+	      }
+	   }
+	 /**
+	  * 修改号码
+	  * @param adminId
+	  * @param phone
+	  */
+	 public void correctPhone(Integer adminId,String phone) {
+		 Session session = factory.openSession();
+		 Transaction tx=null;
+		 try {
+			 tx=session.beginTransaction();
+			 Admin admin = (Admin)session.get(Admin.class,adminId);
+			 admin.setPhone(phone);
+			 session.update(admin);
+			 tx.commit();
+		 }catch (HibernateException e) {
+	         if (tx!=null) tx.rollback();
+	         e.printStackTrace(); 
+	      }finally {
+	         session.close(); 
+	      }
+	 }
+	 /**
+	  * 修改邮箱
+	  * @param adminId
+	  * @param email
+	  */
+	 public void correctEmail(Integer adminId, String email) {
+		 Session session= factory.openSession();
+		 Transaction tx=null;
+		 try {
+			 tx=session.beginTransaction();
+			 Admin admin=(Admin)session.get(Admin.class, adminId);
+			 admin.setEmail(email);
+			 session.update(admin);
+			 tx.commit();
+		 }
+		 catch(HibernateException e) {
+			 if(tx!=null) tx.rollback();
+			 e.printStackTrace();
+		 }
+		 finally {
+			 session.close();
+		 }
+	 }
+	 /**
+	  * 修改用户名
+	  */
+	 public void correctUsername(Integer adminId, String name) {
+		 Session session= factory.openSession();
+		 Transaction tx=null;
+		 try {
+			 tx=session.beginTransaction();
+			 Admin admin=(Admin)session.get(Admin.class, adminId);
+			 admin.setName(name);
+			 session.update(admin);
+			 tx.commit();
+		 }
+		 catch(HibernateException e) {
+			 if(tx!=null) tx.rollback();
+			 e.printStackTrace();
+		 }
+		 finally {
+			 session.close();
+		 }
+	 }
 	@Override
 	protected void finalize() throws Throwable {
 		// TODO 自动生成的方法存根
