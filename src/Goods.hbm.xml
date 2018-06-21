@@ -11,7 +11,7 @@
       <id name="id" type="int" column="gs_id">
          <generator class="native"/>
       </id>
-      <property name="name" column="gs_name" type="int"/>
+      <property name="name" column="gs_name" type="string"/>
       <property name="price" column="gs_price" type="float"/>
       <property name="path" column="gs_path" type="string"/>
       <property name="manager_id" column="gs_manager_id" type="int"/>

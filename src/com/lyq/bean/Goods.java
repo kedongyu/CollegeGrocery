@@ -2,7 +2,7 @@ package com.lyq.bean;
 
 public class Goods {
 	private int id;
-	private int name;
+	private String name;
 	private float price;
 	private String path;
 	private int manger_id;
@@ -11,7 +11,7 @@ public class Goods {
 		
 	}
 	
-	public Goods(int id, int name, float price, String path, int manger_id, String describe) {
+	public Goods(int id, String name, float price, String path, int manger_id, String describe) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -27,10 +27,10 @@ public class Goods {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public float getPrice() {
