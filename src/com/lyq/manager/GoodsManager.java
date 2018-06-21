@@ -130,7 +130,7 @@ public class GoodsManager {
 		 }
 		 finally {
 			 session.close();
-			 return result;
 		 }
+		return result;
 	 }
 }
