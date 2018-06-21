@@ -17,6 +17,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 	private final String SUCCESS="SUCCESS"; 
 	private final String ERROR="ERROR"; 
 	
+	
 	private AdminManager aManager=null;
 	private Map<String,Object> request;
 	
@@ -55,8 +56,9 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 		admin.setPower((short)2);
 		System.out.println(admin.getEmail()+" "+admin.getPassword()+" "+admin.getPhone()+" "+admin.getName());
 		Integer userId=aManager.addAdmin(admin);
-		if(userId!=null)
+		if(userId!=null) {
 			return SUCCESS;
+		}
 		else
 			return ERROR;
 	}
@@ -64,15 +66,24 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 	 * ÐÞ¸ÄÃÜÂë
 	 * @return
 	 */
-	private String temp;
-	public void setTemp(String temp) {
-		this.temp=temp;
+	public String correctPassword() {
+		System.out.println("id:"+2+" password:"+admin.getPassword());
+		aManager.correctPassword(2, admin.getPassword());
+		return SUCCESS;
 	}
-	public String getTemp() {
-		return temp;
+	public String correctUsername() {
+		System.out.println("id:"+2);
+		aManager.correctUsername(2, admin.getName());
+		return SUCCESS;
 	}
-	public String ceshi() {
-	//	aManager.correctPassword(admin.getId(), temp);
+	public String correctPhone() {
+		System.out.println("id:"+2);
+		aManager.correctPhone(2, admin.getPhone());
+		return SUCCESS;
+	}
+	public String correctEmail() {
+		System.out.println("id:"+2);
+		aManager.correctEmail(2, admin.getEmail());
 		return SUCCESS;
 	}
 }

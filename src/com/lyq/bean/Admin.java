@@ -8,8 +8,6 @@ public class Admin {
 	private String password;
 	private short power;
 	
-	
-	
 	public Admin() {
 		
 	}

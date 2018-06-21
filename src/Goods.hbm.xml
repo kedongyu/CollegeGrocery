@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.lyq.bean.Goods" table="goods">
+      <meta attribute="class-description">
+         This class contains the goods detail. 
+      </meta>
+      <id name="id" type="int" column="gs_id">
+         <generator class="native"/>
+      </id>
+      <property name="name" column="gs_name" type="int"/>
+      <property name="price" column="gs_price" type="float"/>
+      <property name="path" column="gs_path" type="string"/>
+      <property name="manager_id" column="gs_manager_id" type="int"/>
+      <property name="describe" column="gs_describe" type="string"/>
+   </class>
+</hibernate-mapping>
