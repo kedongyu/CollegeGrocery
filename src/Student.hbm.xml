@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.lyq.bean.Student" table="stu_info">
+      <meta attribute="class-description">
+         This class contains the goods detail. 
+      </meta>
+      <id name="id" type="int" column="stu_id">
+         <generator class="native"/>
+      </id>
+      <property name="school" column="stu_school" type="string"/>
+      <property name="college" column="stu_college" type="string"/>
+      <property name="stuClass" column="stu_class" type="string"/>
+      <property name="stuNum" column="stu_number" type="string"/>
+      <property name="userId" column="user_id" type="int"/>
+   </class>
+</hibernate-mapping>

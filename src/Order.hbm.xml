@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.lyq.bean.Order" table="orders">
+      <meta attribute="class-description">
+         This class contains the goods detail. 
+      </meta>
+      <id name="id" type="int" column="order_id">
+         <generator class="native"/>
+      </id>
+      <property name="owerId" column="order_ower_id" type="int"/>
+      <property name="goodsId" column="order_gs_id" type="int"/>
+      <property name="address" column="order_address" type="string"/>
+      <property name="goodsCount" column="order_gs_count" type="int"/>
+      <property name="remark" column="order_remark" type="string"/>
+      <property name="state" column="order_state" type="short"/>
+      <property name="date" column="order_time" type="timestamp"/>
+   </class>
+</hibernate-mapping>

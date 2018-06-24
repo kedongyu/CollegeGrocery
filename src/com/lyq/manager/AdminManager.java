@@ -71,7 +71,7 @@ public class AdminManager {
 		finally {
 			session.close();
 		}
-		if(admin.getPassword().equals(password)) {
+		if(admin!=null&&admin.getPassword().equals(password)) {
 			return admin;
 		}
 		else {
@@ -97,6 +97,25 @@ public class AdminManager {
 	         session.close(); 
 	      }
 	   }
+	 
+	 public Admin getAdmin(Integer AdminId) {
+		 Session session = factory.openSession();
+	      Transaction tx = null;
+	      Admin admin=null;
+	      try{
+	         tx = session.beginTransaction();
+	         admin = (Admin)session.get(Admin.class, AdminId); 
+	         tx.commit();
+	      }catch (HibernateException e) {
+	         if (tx!=null) tx.rollback();
+	         e.printStackTrace(); 
+	      }finally {
+	         session.close(); 
+	      }
+	      return admin;
+	 }
+	 
+	 
 	 /**
 	  * ÐÞ¸ÄºÅÂë
 	  * @param adminId

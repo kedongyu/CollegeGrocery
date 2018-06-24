@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>发布商品</title>
+</head><script type="text/javascript">
+	function test(test) {
+		window.location.href = '/CollegeGrocery/index.jsp';
+	}
+</script>
+<style type="text/css">
+body {
+	background-color: #ccffff;
+	font-family: 50;
+	color: #000000;
+}
+
+.ys1 {
+	font-size: 18px;
+}
+
+.ys2 {
+	font-size: 24px;
+	font-family: 50;
+	color: #999999;
+}
+
+.ys3 {
+	font-size: 36px;
+	background-color: #ffffcc;
+	color: #3399cc;
+}
+
+.ys4 {
+	font-size: 30px;
+}
+
+.ys2 #form2 #textfield2 {
+	color: #999999;
+	font-family: "Comic Sans MS", cursive;
+}
+
+.ys2 #form3 #textarea {
+	color: #999999;
+}
+</style>
+<body>
+	<form method="post" action="./uploadPicture"
+		enctype="multipart/form-data" accept="image/*">
+
+		<table width="1310" border="0" align="center">
+			
+			<tr>
+				<td height="399"><table width="1310" border="0">
+
+						<tr>
+							<td width="500" height="623" valign="top"><p>&nbsp;</p>
+								<p>&nbsp;</p>
+								<table width="400" height="118" border="1" align="center">
+									<tr>
+										<td height="400" align="center" valign="middle"><label
+											for="fileField"></label> <input name="myfile" type="file"
+											id="fileField" size="15" maxlength="100" /></td>
+									</tr>
+								</table></td>
+							<td width="800" valign="top"><p>&nbsp;</p>
+								<p>&nbsp;</p>
+								<table width="605" height="435" border="0">
+									<tr>
+										<td width="599" bgcolor="#ccFFFF" class="ys2"><label
+											for="textfield2"></label> <input name="goods.name"
+											type="text" class="ys2" id="textfield2" placeholder="商品名称" /></td>
+									</tr>
+									<tr valign="middle">
+										<td height="186" bgcolor="#ccFFFF" class="ys2"><label
+											for="textarea"></label> <textarea name="goods.describe"
+												cols="45" rows="5" class="ys2" id="textarea"
+												placeholder="商品描述"></textarea></td>
+									</tr>
+									<tr align="left">
+										<td height="73" bgcolor="#ccFFFF"><input
+											name="goods.price" type="number" class="ys2" id="textfield3"
+											placeholder="单价" size="10" /></td>
+									</tr>
+									<tr align="left">
+										<td height="119" bgcolor="#ccFFFF"><input name="button2"
+											type="submit" class="ys4" id="button2" value="保存" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+								</table></td>
+						</tr>
+					</table></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

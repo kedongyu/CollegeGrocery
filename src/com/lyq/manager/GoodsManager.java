@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.lyq.bean.Admin;
 import com.lyq.bean.Goods;
 
 public class GoodsManager {
@@ -31,7 +30,7 @@ public class GoodsManager {
 		Transaction tx=null;
 		try {
 			tx=session.beginTransaction();
-			String hql="Form com.lyq.bean.Goods";	
+			String hql="From com.lyq.bean.Goods";	
 			List l=session.createQuery(hql).list();
 			for(Iterator it=l.iterator();it.hasNext();)
 			{
@@ -49,6 +48,24 @@ public class GoodsManager {
 		}
 		return list;
 	}
+	public Goods GetGoodById(int id) {
+		Session session=factory.openSession();
+		Goods gs=null;
+		Transaction tx=null;
+		try {
+			tx=session.beginTransaction();
+			gs=(Goods)session.get(Goods.class, id);
+			tx.commit();
+		}
+		catch(HibernateException he) {
+			if(tx!=null) tx.rollback();
+			he.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		return gs;
+	}
 	public List<Goods> GetGoodByManagerId(int adminId) {
 		List<Goods> list=new ArrayList<Goods>();
 		Session session=factory.openSession();
@@ -60,7 +77,7 @@ public class GoodsManager {
 			for(Iterator it=l.iterator();it.hasNext();)
 			{
 				Goods goods=(Goods)it.next();
-				if(goods.getManger_id()==adminId)
+				if(goods.getManager_id()==adminId)
 					list.add(goods);
 			}
 			tx.commit();
@@ -133,4 +150,38 @@ public class GoodsManager {
 		 }
 		return result;
 	 }
+	 public Integer addGoods(Goods goods){
+	      Session session = factory.openSession();
+	      Transaction tx = null;
+	      Integer goodsID = null;
+	      try{
+	         tx = session.beginTransaction();
+	         goodsID = (Integer) session.save(goods); 
+	         tx.commit();
+	      }catch (HibernateException e) {
+	         if (tx!=null) tx.rollback();
+	         e.printStackTrace(); 
+	      }finally {
+	         session.close(); 
+	      }
+	      return goodsID;
+	   }
+	 
+	 public void deleteGoods(Integer id){
+	      Session session = factory.openSession();
+	      Transaction tx = null;
+	      try{
+	         tx = session.beginTransaction();
+	         Goods goods = 
+	                   (Goods)session.get(Goods.class, id); 
+	         session.delete(goods); 
+	         tx.commit();
+	      }catch (HibernateException e) {
+	         if (tx!=null) tx.rollback();
+	         e.printStackTrace(); 
+	      }finally {
+	         session.close(); 
+	      }
+	   }
+	 
 }

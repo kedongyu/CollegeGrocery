@@ -5,7 +5,7 @@
 <struts>  
     <package name="default" namespace="/" extends="struts-default" >         
         <action name="loginAction" class="com.lyq.action.LoginAction" method="login">  
-            <result name="SUCCESS">/source/login.jsp</result>  
+            <result name="SUCCESS">/index.jsp</result>  
             <result name="ERROR">/index.html</result>  
         </action> 
         <action name="registerAction" class="com.lyq.action.LoginAction" method="register">  
@@ -24,5 +24,27 @@
         <action name="correctNameAction" class="com.lyq.action.LoginAction" method="correctUsername">  
             <result name="SUCCESS">/source/login.jsp</result>  
         </action> 
+        <action name="uploadPicture" class="com.lyq.action.UploadAction" method="upload">
+        	<result name="SUCCESS">/source/goods/message.jsp</result>
+        </action>
+        <action name="addGoodsAction" class="com.lyq.action.GoodsAction" method="addGoods">
+        	<result name="SUCCESS">/source/goods/GoodsMananger.jsp</result>
+        	<result name="ERROR">/source/goods/GoodsMananger.jsp</result>
+        </action>
+        <action name="correctInfo" class="com.lyq.action.LoginAction" method="correctInfo">
+        	<result name="SUCCESS">/source/admin/userInfo.jsp</result>
+        </action>
+        <action name="addOrderAction" class="com.lyq.action.OrderAction" method="addOrder">
+        	<result name="SUCCESS">/source/goods/myOrder.jsp</result>
+        </action>
+        <action name="logoutAction" class="com.lyq.action.LoginAction" method="logout">
+        	<result name="SUCCESS">/index.jsp</result>
+        </action>
+        <action name="correctGoodsAction" class="com.lyq.action.GoodsAction" method="correctGoods">
+        	<result name="SUCCESS">/source/goods/GoodsMananger.jsp</result>
+        </action>
+        <action name="deleteGoodsAction" class="com.lyq.action.GoodsAction" method="deleteGoods">
+        	       <result name="SUCCESS">/source/goods/GoodsMananger.jsp</result>
+        </action>
     </package>  
 </struts>  
